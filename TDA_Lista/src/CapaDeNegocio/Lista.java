@@ -7,7 +7,7 @@ package CapaDeNegocio;
 
 /**
  *
- * @author ferna
+ * @author fernando el 23 Auxiliatura ED1
  */
 public class Lista {
 
@@ -71,6 +71,50 @@ public class Lista {
         }
 
     }
+    
+    
+    public void eliminar(int elemento){
+        if(!Vacia()){
+            Nodo aux=L;
+            Nodo ant=null;
+            while(aux!=null && aux.getDato()!=elemento){
+                ant=aux;
+                aux=aux.getEnlace();
+            }
+            if(ant==null){//cabeza
+                L=aux.getEnlace();
+                aux=null;
+                cant--;
+            }else{
+                if (aux!=null) {
+                    Nodo p=aux.getEnlace();
+                    ant.setEnlace(p);
+                    
+                    aux=null;
+                    cant--;
+                }
+ 
+            }
+        }
+    }
+    public void invertir(){
+        if(Vacia()||(cant==1)){
+            
+        }else{
+            Nodo ant=null;
+            Nodo act=L;
+            Nodo pos=L.getEnlace();
+            while (act!=null) {                
+                act.setEnlace(ant);
+                ant=act;
+                act=pos;
+                if(pos!=null){
+                    pos=pos.getEnlace();
+                }
+            }
+            L=ant;
+        }
+    }
 
     public static void main(String[] args) {
         Lista L = new Lista();
@@ -78,6 +122,9 @@ public class Lista {
         L.insertar(3);
         L.insertar(5);
         L.insertar(5);
+        System.out.println(L);
+          L.eliminar(5);
+       // L.invertir();
         System.out.println(L);
     }
 

@@ -7,7 +7,7 @@ package CapaDeNegocio;
 
 /**
  *
- * @author ferna
+ * @author fernando el 23 Auxiliatura ED1
  */
 public class Nodo {
     //Atributos 
